@@ -4,26 +4,67 @@ using UnityEngine;
 
 public class MultiDimesionalObject : MonoBehaviour
 {
-    public static int s_DimensionShift = 0;
+    public static int s_DimensionShift = 1;
     [SerializeField] int m_DimensionShiftIndex = 0;
+    float m_shiftyness = 2;
+    MeshRenderer m_rend;
 
+    public bool m_shifting = false;
 
-    // Start is called before the first frame update
-    void Start()
+    public static List<MultiDimesionalObject> s_MDOs = new List<MultiDimesionalObject>();
+
+    float minimum = -1.0f;
+    float maximum = 2.0f;
+
+    float t = 0.0f;
+
+    private void Start()
     {
-        
+        s_MDOs.Add(this);
+        m_rend = GetComponentInChildren<MeshRenderer>();    
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        if(m_shiftyness <= -1 || m_shiftyness >= 2)
+        {
+            m_shifting = false;
+        }
+        else
+        {
+            m_shifting = true;
+        }
+
+
+        m_rend.material.SetFloat("Vector1_C7F57F92", m_shiftyness);
+
         if(m_DimensionShiftIndex!=s_DimensionShift)
         {
-            transform.GetChild(0).gameObject.SetActive(false);
+
+
+            if (m_shiftyness<=-1)
+            {
+                transform.GetChild(0).gameObject.SetActive(false);
+                t = 0;
+            }
+            else
+            {
+                m_shiftyness = Mathf.Lerp(maximum, minimum, t);
+                t += 1.5f * Time.deltaTime;
+            }
         }
         else
         {
             transform.GetChild(0).gameObject.SetActive(true);
+            if (m_shiftyness >= 2)
+            {
+                t = 0;
+            }
+            else
+            {
+                m_shiftyness = Mathf.Lerp(minimum, maximum, t);
+                t += 1.5f * Time.deltaTime;
+            }
         }
     }
 }
