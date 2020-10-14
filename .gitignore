@@ -1,0 +1,42 @@
+/Unity/New Unity Project (1)/[Tt]emp/
+/Unity/New Unity Project (1)/[Oo]bj/
+/Unity/New Unity Project (1)/[Bb]uild
+/Unity/New Unity Project (1)/[Bb]uilds/
+/Unity/New Unity Project (1)/[Ll]ibrary/
+/Unity/New Unity Project (1)/sysinfo.txt
+/Unity/New Unity Project (1)/*.stackdump
+/Unity/New Unity Project (1)/Assets/AssetStoreTools*
+/Unity/New Unity Project (1)/*.apk
+/Unity/New Unity Project (1)/*.unitypackage
+ 
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+/Unity/New Unity Project (1)/[Ee]xported[Oo]bj/
+/Unity/New Unity Project (1)/.vs/
+/Unity/New Unity Project (1)/*.userprefs
+/Unity/New Unity Project (1)/*.csproj
+/Unity/New Unity Project (1)/*.pidb
+/Unity/New Unity Project (1)/*.pidb.meta
+/Unity/New Unity Project (1)/*.suo
+/Unity/New Unity Project (1)/*.sln*
+/Unity/New Unity Project (1)/*.user
+/Unity/New Unity Project (1)/*.unityproj
+/Unity/New Unity Project (1)/*.booproj
+/Unity/New Unity Project (1)/.consulo/
+/Unity/New Unity Project (1)/*.tmp
+/Unity/New Unity Project (1)/*.svd
+ 
+# ============ #
+# OS generated #
+# ============ #
+/Unity/New Unity Project (1)/.DS_Store*
+/Unity/New Unity Project (1)/._*
+/Unity/New Unity Project (1)/.Spotlight-V100
+/Unity/New Unity Project (1)/.Trashes
+/Unity/New Unity Project (1)/Icon?
+/Unity/New Unity Project (1)/ehthumbs.db
+/Unity/New Unity Project (1)/[Tt]humbs.db
+/Unity/New Unity Project (1)/[Dd]esktop.ini
+/Unity/New Unity Project (1)/Corridor/Library/ShaderCache/
+/Unity/New Unity Project (1)/Corridor/Library/metadata/
