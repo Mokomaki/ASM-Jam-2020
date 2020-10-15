@@ -23,7 +23,6 @@ public class PressurePlate : MonoBehaviour
                 pc.box.parent = null;
                 pc.box.position = new Vector3(pc.box.position.x, -7, pc.box.position.z);
                 if(m_swicharoo) m_swicharoo.SetActive(!m_swicharoo.activeSelf);
-                Debug.Log(pc.box.GetComponent<MultiDimesionalObject>());
                 pc.box.GetComponent<MultiDimesionalObject>().enabled = true;
                 pc.box = null;
             }

@@ -338,6 +338,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6838073416687815823}
+  - component: {fileID: 1455494715}
   m_Layer: 0
   m_Name: aita
   m_TagString: Untagged
@@ -362,6 +363,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1455494715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5086420653948220622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ceee8f46cf19b948b7d3ed9aa87307f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_DimensionShiftIndex: 3
+  m_rends:
+  - {fileID: 715511479457783787}
+  - {fileID: 6013830696408912447}
+  - {fileID: 4614007883308298145}
+  - {fileID: 6598284157346455024}
+  m_shifting: 0
 --- !u!1 &5445325515489034318
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,6 +391,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6676397280395632845}
+  - component: {fileID: 982064976}
   m_Layer: 0
   m_Name: LAzrt
   m_TagString: Untagged
@@ -395,6 +416,19 @@ Transform:
   m_Father: {fileID: 6838073416687815823}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &982064976
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5445325515489034318}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.3, y: 3.44, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8535571013275636090
 GameObject:
   m_ObjectHideFlags: 0

@@ -25,13 +25,12 @@ public class Hover : MonoBehaviour
         startY = transform.position.y;
         transform.position = new Vector3(transform.position.x, transform.position.y+Random.Range(minimum, maximum), transform.position.z);
 
-        
+        m_hoverSpeed = m_hoverSpeed + Random.Range(0.03f, m_hoverSpeed);
     }
 
     void Update()
     {
         
-
         if (!m_hovering)
             return;
 

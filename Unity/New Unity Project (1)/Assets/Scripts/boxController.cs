@@ -13,6 +13,13 @@ public class boxController : MonoBehaviour
         m_collider = GetComponent<BoxCollider>();
         m_hover = GetComponentInChildren<Hover>();
     }
+    private void Update()
+    {
+        if(!m_collider.enabled)
+        {
+            transform.GetChild(0).position = new Vector3(transform.GetChild(0).position.x, transform.position.y, transform.GetChild(0).position.z);
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {

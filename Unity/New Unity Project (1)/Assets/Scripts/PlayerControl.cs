@@ -98,9 +98,10 @@ public class PlayerControl : MonoBehaviour
 
     void Movement()
     {
-        RaycastHit hit;
+
         if (Input.GetKeyDown(KeyCode.W))
         {
+            RaycastHit hit;
             if (Physics.Raycast(new Ray(transform.position, new Vector3(0, -1, 1)), out hit, rayDist))
             {
                 
@@ -122,7 +123,7 @@ public class PlayerControl : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
-            
+            RaycastHit hit;
             if (Physics.Raycast(new Ray(transform.position, new Vector3(0, -1, -1)), out hit, rayDist))
             {
 
@@ -146,7 +147,7 @@ public class PlayerControl : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
-
+            RaycastHit hit;
             if (Physics.Raycast(new Ray(transform.position, new Vector3(-1, -1, 0)), out hit, rayDist))
             {
                 if (hit.transform.CompareTag("ground"))
@@ -169,8 +170,8 @@ public class PlayerControl : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.D))
         {
-            
 
+            RaycastHit hit;
             if (Physics.Raycast(new Ray(transform.position, new Vector3(1, -1, 0)), out hit, rayDist))
             {
                 
