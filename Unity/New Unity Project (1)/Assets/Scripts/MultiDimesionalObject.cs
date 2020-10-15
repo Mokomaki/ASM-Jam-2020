@@ -7,7 +7,7 @@ public class MultiDimesionalObject : MonoBehaviour
     public static int s_DimensionShift = 1;
     [SerializeField] int m_DimensionShiftIndex = 0;
     float m_shiftyness = 2;
-    MeshRenderer m_rend;
+    [SerializeField] MeshRenderer[] m_rends;
 
     public bool m_shifting = false;
 
@@ -21,7 +21,7 @@ public class MultiDimesionalObject : MonoBehaviour
     private void Start()
     {
         s_MDOs.Add(this);
-        m_rend = GetComponentInChildren<MeshRenderer>();    
+        //m_rend = GetComponentInChildren<MeshRenderer>();    
     }
 
     void FixedUpdate()
@@ -35,8 +35,10 @@ public class MultiDimesionalObject : MonoBehaviour
             m_shifting = true;
         }
 
-
-        m_rend.material.SetFloat("Vector1_C7F57F92", m_shiftyness);
+        for(int i = 0; i< m_rends.Length; i++)
+        {
+            m_rends[i].material.SetFloat("Vector1_C7F57F92", m_shiftyness);
+        }
 
         if(m_DimensionShiftIndex!=s_DimensionShift)
         {

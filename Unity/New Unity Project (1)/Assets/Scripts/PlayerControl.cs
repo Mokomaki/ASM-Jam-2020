@@ -8,6 +8,10 @@ public class PlayerControl : MonoBehaviour
 
     public float rayDist;
 
+    public int state = 0;
+
+    [SerializeField] Animator m_animator;
+
     private void Start()
     {
         respawnPoint = transform.position;
@@ -15,6 +19,8 @@ public class PlayerControl : MonoBehaviour
 
     void Update()
     {
+        m_animator.SetInteger("State", state);
+
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             Shift(1);
