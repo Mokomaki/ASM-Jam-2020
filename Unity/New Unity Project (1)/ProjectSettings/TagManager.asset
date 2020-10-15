@@ -6,6 +6,7 @@ TagManager:
   tags:
   - RespawnPoint
   - kill
+  - ground
   layers:
   - Default
   - TransparentFX

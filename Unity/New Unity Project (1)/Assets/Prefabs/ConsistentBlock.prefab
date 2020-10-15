@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2256884908102018720}
   m_Layer: 0
   m_Name: ConsistentBlock
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -257,7 +257,12 @@ PrefabInstance:
     - target: {fileID: 7552327990734392285, guid: f56642bbf8ac0d0439dd77be4229817e,
         type: 3}
       propertyPath: m_Size.y
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552327990734392285, guid: f56642bbf8ac0d0439dd77be4229817e,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f56642bbf8ac0d0439dd77be4229817e, type: 3}

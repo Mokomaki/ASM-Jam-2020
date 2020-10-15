@@ -7,7 +7,10 @@ public class Hover : MonoBehaviour
     float startY;
     public float m_hoverAmount;
     public float m_rotationSpeed;
+    public float m_hoverSpeed = 0.5f;
+
     [HideInInspector] public bool m_hovering = true;
+
 
     float minimum;
     float maximum;
@@ -20,10 +23,15 @@ public class Hover : MonoBehaviour
         maximum = m_hoverAmount;
 
         startY = transform.position.y;
+        transform.position = new Vector3(transform.position.x, transform.position.y+Random.Range(minimum, maximum), transform.position.z);
+
+        
     }
 
     void Update()
     {
+        
+
         if (!m_hovering)
             return;
 
@@ -31,12 +39,8 @@ public class Hover : MonoBehaviour
 
         transform.position = new Vector3(transform.position.x,startY + Mathf.Lerp(minimum, maximum, t),transform.position.z);
 
-        // .. and increase the t interpolater
-        t += 0.5f * Time.deltaTime;
+        t += m_hoverSpeed * Time.deltaTime;
 
-        // now check if the interpolator has reached 1.0
-        // and swap maximum and minimum so game object moves
-        // in the opposite direction.
         if (t > 1.0f)
         {
             float temp = maximum;

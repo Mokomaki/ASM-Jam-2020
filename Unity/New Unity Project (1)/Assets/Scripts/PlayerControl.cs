@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,21 +7,47 @@ public class PlayerControl : MonoBehaviour
 {
     Vector3 respawnPoint;
 
+    BoxCollider m_collider;
+
     public float rayDist;
 
     public int state = 0;
 
     [SerializeField] Animator m_animator;
 
+    public AudioSource m_ass;
+
+    public AudioClip saatana;
+    public AudioClip move;
+
     public Transform box;
+    Rigidbody m_rb;
+    bool m_dropping = false;
 
     private void Start()
     {
+        m_collider = GetComponent<BoxCollider>();
+
+        m_rb = GetComponent<Rigidbody>();
         respawnPoint = transform.position;
     }
 
     void Update()
     {
+        if(!Physics.Raycast(new Ray(transform.position,Vector3.down*3),3.0f))
+        {
+            if(!m_dropping)
+            {
+                m_ass.clip = saatana;
+                m_ass.Play();
+            }
+                m_dropping = true;
+        }
+        else
+        {
+            m_dropping = false;
+        }
+
         m_animator.SetInteger("State", state);
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -54,7 +81,7 @@ public class PlayerControl : MonoBehaviour
         Debug.DrawRay(transform.position, new Vector3(-1, -1, 0), Color.red);
         Debug.DrawRay(transform.position, new Vector3(1, -1, 0), Color.red);
 
-        Movement();
+        if(m_rb.velocity.y==0) Movement();
     }
 
     void Shift(int dimension)
@@ -71,49 +98,95 @@ public class PlayerControl : MonoBehaviour
 
     void Movement()
     {
+        RaycastHit hit;
         if (Input.GetKeyDown(KeyCode.W))
         {
-            if (Physics.Raycast(new Ray(transform.position, new Vector3(0, -1, 1)), rayDist))
+            if (Physics.Raycast(new Ray(transform.position, new Vector3(0, -1, 1)), out hit, rayDist))
             {
-                transform.Translate(new Vector3(0, 0, 1));
                 
-                //TODO ei näin
-                transform.GetChild(0).rotation = Quaternion.identity;
-                transform.GetChild(0).Rotate(0,-90,0);
+                if (hit.transform.CompareTag("ground")) 
+                {
+                    transform.Translate(new Vector3(0, 0, 1));
+
+                    m_ass.clip = move;
+                    m_ass.Play();
+                    m_collider.center = new Vector3(0, 0, 1);
+
+                    //TODO ei näin
+                    transform.GetChild(0).rotation = Quaternion.identity;
+                    transform.GetChild(0).Rotate(0, -90, 0);
+                }
+
+                
             }
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
             
-            if (Physics.Raycast(new Ray(transform.position, new Vector3(0, -1, -1)), rayDist))
+            if (Physics.Raycast(new Ray(transform.position, new Vector3(0, -1, -1)), out hit, rayDist))
             {
-                transform.Translate(new Vector3(0, 0, -1));
-                //TODO ei näin
-                transform.GetChild(0).rotation = Quaternion.identity;
-                transform.GetChild(0).Rotate(0, 90, 0);
+
+                if (hit.transform.CompareTag("ground")) 
+                {
+                    transform.Translate(new Vector3(0, 0, -1));
+
+                    m_ass.clip = move;
+                    m_ass.Play();
+                    m_collider.center = new Vector3(0, 0, -1);
+
+                    //TODO ei näin
+                    transform.GetChild(0).rotation = Quaternion.identity;
+                    transform.GetChild(0).Rotate(0, 90, 0);
+
+
+                }
+
 
             }
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
-            
-            if (Physics.Raycast(new Ray(transform.position, new Vector3(-1, -1, 0)), rayDist))
+
+            if (Physics.Raycast(new Ray(transform.position, new Vector3(-1, -1, 0)), out hit, rayDist))
             {
-                transform.Translate(new Vector3(-1, 0, 0));
-                //TODO ei näin
-                transform.GetChild(0).rotation = Quaternion.identity;
-                transform.GetChild(0).Rotate(0, 180, 0);
+                if (hit.transform.CompareTag("ground"))
+                {
+                    transform.Translate(new Vector3(-1, 0, 0));
+
+                    m_ass.clip = move;
+                    m_ass.Play();
+                    m_collider.center = new Vector3(-1, 0, 0);
+
+                    //TODO ei näin
+                    transform.GetChild(0).rotation = Quaternion.identity;
+                    transform.GetChild(0).Rotate(0, 180, 0);
+
+
+                }
+
 
             }
         }
         else if (Input.GetKeyDown(KeyCode.D))
         {
             
-            if (Physics.Raycast(new Ray(transform.position, new Vector3(1, -1, 0)), rayDist))
+
+            if (Physics.Raycast(new Ray(transform.position, new Vector3(1, -1, 0)), out hit, rayDist))
             {
-                transform.Translate(new Vector3(1, 0, 0));
-                //TODO ei näin
-                transform.GetChild(0).rotation = Quaternion.identity;
+                
+                if (hit.transform.CompareTag("ground")) 
+                {
+                    transform.Translate(new Vector3(1, 0, 0));
+
+                    m_ass.clip = move;
+                    m_ass.Play();
+                    m_collider.center = new Vector3(1, 0, 0);
+
+                    //TODO ei näin
+                    transform.GetChild(0).rotation = Quaternion.identity;
+
+                }
+
 
             }
         }
