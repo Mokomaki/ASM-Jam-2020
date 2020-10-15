@@ -7,6 +7,7 @@ public class Hover : MonoBehaviour
     float startY;
     public float m_hoverAmount;
     public float m_rotationSpeed;
+    [HideInInspector] public bool m_hovering = true;
 
     float minimum;
     float maximum;
@@ -23,6 +24,9 @@ public class Hover : MonoBehaviour
 
     void Update()
     {
+        if (!m_hovering)
+            return;
+
         transform.Rotate(0, m_rotationSpeed, 0);
 
         transform.position = new Vector3(transform.position.x,startY + Mathf.Lerp(minimum, maximum, t),transform.position.z);

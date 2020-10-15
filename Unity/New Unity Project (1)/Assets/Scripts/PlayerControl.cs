@@ -12,6 +12,8 @@ public class PlayerControl : MonoBehaviour
 
     [SerializeField] Animator m_animator;
 
+    public Transform box;
+
     private void Start()
     {
         respawnPoint = transform.position;
