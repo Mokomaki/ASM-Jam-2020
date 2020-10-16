@@ -6663,6 +6663,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PressurePlate
       objectReference: {fileID: 0}
+    - target: {fileID: 8162381234251199832, guid: c5ea004f1783cb44abb3b1466edaf723,
+        type: 3}
+      propertyPath: m_DimensionShiftIndex
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 9216927407823595558, guid: c5ea004f1783cb44abb3b1466edaf723,
         type: 3}
       propertyPath: m_swicharoo
@@ -11378,7 +11383,7 @@ PrefabInstance:
     - target: {fileID: 4899241517758004481, guid: 343830046ad2e7b4ebc07591cddcbe3e,
         type: 3}
       propertyPath: m_DimensionShiftIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8980810763091415462, guid: 343830046ad2e7b4ebc07591cddcbe3e,
         type: 3}
