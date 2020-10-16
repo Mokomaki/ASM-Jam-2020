@@ -34,14 +34,14 @@ public class PlayerControl : MonoBehaviour
 
     void Update()
     {
-        if(!Physics.Raycast(new Ray(transform.position,Vector3.down*3),3.0f))
+        if (!Physics.Raycast(new Ray(transform.position, Vector3.down * 3), 3.0f))
         {
-            if(!m_dropping)
+            if (!m_dropping)
             {
                 m_ass.clip = saatana;
                 m_ass.Play();
             }
-                m_dropping = true;
+            m_dropping = true;
         }
         else
         {
@@ -74,21 +74,20 @@ public class PlayerControl : MonoBehaviour
         {
             Shift(6);
         }
-        
-        
+
         Debug.DrawRay(transform.position, new Vector3(0, -1, 1), Color.red);
         Debug.DrawRay(transform.position, new Vector3(0, -1, -1), Color.red);
         Debug.DrawRay(transform.position, new Vector3(-1, -1, 0), Color.red);
         Debug.DrawRay(transform.position, new Vector3(1, -1, 0), Color.red);
 
-        if(m_rb.velocity.y==0) Movement();
+        if (m_rb.velocity.y == 0) Movement();
     }
 
     void Shift(int dimension)
     {
-        for(int i = 0; i<MultiDimesionalObject.s_MDOs.Count;i++)
+        for (int i = 0; i < MultiDimesionalObject.s_MDOs.Count; i++)
         {
-            if(MultiDimesionalObject.s_MDOs[i].m_shifting)
+            if (MultiDimesionalObject.s_MDOs[i].m_shifting)
             {
                 return;
             }
@@ -104,15 +103,12 @@ public class PlayerControl : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(new Ray(transform.position, new Vector3(0, -1, 1)), out hit, rayDist))
             {
-                
-                if (hit.transform.CompareTag("ground")) 
+
+                if (hit.transform.CompareTag("ground"))
                 {
                     transform.Translate(new Vector3(0, 0, 1));
 
-
                 }
-
-                
             }
 
             m_ass.clip = move;
@@ -128,17 +124,10 @@ public class PlayerControl : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(new Ray(transform.position, new Vector3(0, -1, -1)), out hit, rayDist))
             {
-
-                if (hit.transform.CompareTag("ground")) 
+                if (hit.transform.CompareTag("ground"))
                 {
                     transform.Translate(new Vector3(0, 0, -1));
-
-
-
-
                 }
-
-
             }
 
             m_ass.clip = move;
@@ -157,13 +146,7 @@ public class PlayerControl : MonoBehaviour
                 if (hit.transform.CompareTag("ground"))
                 {
                     transform.Translate(new Vector3(-1, 0, 0));
-
-
-
-
                 }
-
-
             }
             m_collider.center = new Vector3(-1, 0, 0);
 
@@ -179,13 +162,10 @@ public class PlayerControl : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(new Ray(transform.position, new Vector3(1, -1, 0)), out hit, rayDist))
             {
-                
-                if (hit.transform.CompareTag("ground")) 
+
+                if (hit.transform.CompareTag("ground"))
                 {
                     transform.Translate(new Vector3(1, 0, 0));
-
-
-
                 }
 
 
@@ -202,14 +182,14 @@ public class PlayerControl : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("RespawnPoint"))
+        if (other.CompareTag("RespawnPoint"))
         {
             respawnPoint = other.transform.position;
         }
-        if(other.CompareTag("kill"))
+        if (other.CompareTag("kill"))
         {
             //GetComponent<Rigidbody>().velocity = Vector3.zero;
-            transform.position = respawnPoint+new Vector3(0,2,0);
+            transform.position = respawnPoint + new Vector3(0, 2, 0);
         }
     }
 }
