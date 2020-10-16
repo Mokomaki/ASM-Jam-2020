@@ -109,17 +109,19 @@ public class PlayerControl : MonoBehaviour
                 {
                     transform.Translate(new Vector3(0, 0, 1));
 
-                    m_ass.clip = move;
-                    m_ass.Play();
-                    m_collider.center = new Vector3(0, 0, 1);
 
-                    //TODO ei näin
-                    transform.GetChild(0).rotation = Quaternion.identity;
-                    transform.GetChild(0).Rotate(0, -90, 0);
                 }
 
                 
             }
+
+            m_ass.clip = move;
+            m_ass.Play();
+            m_collider.center = new Vector3(0, 0, 1);
+
+            //TODO ei näin
+            transform.GetChild(0).rotation = Quaternion.identity;
+            transform.GetChild(0).Rotate(0, -90, 0);
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
@@ -131,19 +133,21 @@ public class PlayerControl : MonoBehaviour
                 {
                     transform.Translate(new Vector3(0, 0, -1));
 
-                    m_ass.clip = move;
-                    m_ass.Play();
-                    m_collider.center = new Vector3(0, 0, -1);
 
-                    //TODO ei näin
-                    transform.GetChild(0).rotation = Quaternion.identity;
-                    transform.GetChild(0).Rotate(0, 90, 0);
 
 
                 }
 
 
             }
+
+            m_ass.clip = move;
+            m_ass.Play();
+            m_collider.center = new Vector3(0, 0, -1);
+
+            //TODO ei näin
+            transform.GetChild(0).rotation = Quaternion.identity;
+            transform.GetChild(0).Rotate(0, 90, 0);
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
@@ -154,19 +158,20 @@ public class PlayerControl : MonoBehaviour
                 {
                     transform.Translate(new Vector3(-1, 0, 0));
 
-                    m_ass.clip = move;
-                    m_ass.Play();
-                    m_collider.center = new Vector3(-1, 0, 0);
 
-                    //TODO ei näin
-                    transform.GetChild(0).rotation = Quaternion.identity;
-                    transform.GetChild(0).Rotate(0, 180, 0);
 
 
                 }
 
 
             }
+            m_collider.center = new Vector3(-1, 0, 0);
+
+            m_ass.clip = move;
+            m_ass.Play();
+            //TODO ei näin
+            transform.GetChild(0).rotation = Quaternion.identity;
+            transform.GetChild(0).Rotate(0, 180, 0);
         }
         else if (Input.GetKeyDown(KeyCode.D))
         {
@@ -179,17 +184,19 @@ public class PlayerControl : MonoBehaviour
                 {
                     transform.Translate(new Vector3(1, 0, 0));
 
-                    m_ass.clip = move;
-                    m_ass.Play();
-                    m_collider.center = new Vector3(1, 0, 0);
 
-                    //TODO ei näin
-                    transform.GetChild(0).rotation = Quaternion.identity;
 
                 }
 
 
             }
+
+            m_ass.clip = move;
+            m_ass.Play();
+            m_collider.center = new Vector3(1, 0, 0);
+
+            //TODO ei näin
+            transform.GetChild(0).rotation = Quaternion.identity;
         }
     }
 
