@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/level1taijotaa.unity
     guid: f658001519571dc48903b2573cb4ed4a
+  - enabled: 1
+    path: Assets/Scenes/level2taijotaa.unity
+    guid: c8f4104f646588e419385eb0d7f057ac
   m_configObjects: {}
