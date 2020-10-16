@@ -6,7 +6,7 @@ public class MultiDimesionalObject : MonoBehaviour
 {
     public static int s_DimensionShift = 1;
     [SerializeField] int m_DimensionShiftIndex = 0;
-    float m_shiftyness = 2;
+    public float m_shiftyness = 2;
     [SerializeField] MeshRenderer[] m_rends;
 
     public bool m_shifting = false;

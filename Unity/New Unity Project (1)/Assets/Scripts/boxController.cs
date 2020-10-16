@@ -27,6 +27,8 @@ public class boxController : MonoBehaviour
         {
             if(!other.GetComponent<PlayerControl>().box)
             {
+                m_mdo.m_shifting = false;
+                m_mdo.m_shiftyness = 2;
                 m_mdo.enabled = false;
                 m_collider.enabled = false;
                 transform.parent = other.transform.GetChild(0);
