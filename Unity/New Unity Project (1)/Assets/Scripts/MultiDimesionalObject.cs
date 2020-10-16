@@ -5,7 +5,7 @@ using UnityEngine;
 public class MultiDimesionalObject : MonoBehaviour
 {
     public static int s_DimensionShift = 1;
-    [SerializeField] int m_DimensionShiftIndex = 0;
+    [SerializeField] public int m_DimensionShiftIndex = 0;
     public float m_shiftyness = 2;
     [SerializeField] MeshRenderer[] m_rends;
 
