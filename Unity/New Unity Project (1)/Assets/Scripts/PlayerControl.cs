@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -30,10 +31,17 @@ public class PlayerControl : MonoBehaviour
 
         m_rb = GetComponent<Rigidbody>();
         respawnPoint = transform.position;
+        Shift(1);
     }
 
     void Update()
     {
+        if(Input.GetKey(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(0);
+        }
+
+
         if (!Physics.Raycast(new Ray(transform.position, Vector3.down * 3), 3.0f))
         {
             if (!m_dropping)
@@ -61,18 +69,6 @@ public class PlayerControl : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             Shift(3);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            Shift(4);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            Shift(5);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            Shift(6);
         }
 
         Debug.DrawRay(transform.position, new Vector3(0, -1, 1), Color.red);
